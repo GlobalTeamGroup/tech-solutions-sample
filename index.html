@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="ВАША КОМПАНИЯ — образец сайта от Global Plus." />
+  <title>ВАША КОМПАНИЯ — образец сайта</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <canvas id="gl-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
+  <div class="grain-overlay"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" data-scroll="0">
+        <img src="images/logo.svg" alt="Logo" class="logo-img" />
+        <span class="logo-text">ВАША <span class="logo-accent">КОМПАНИЯ</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-scroll="1" class="nav-link">Услуги</a></li>
+        <li><a href="#" data-scroll="2" class="nav-link">Проекты</a></li>
+        <li><a href="#" data-scroll="3" class="nav-link">Процесс</a></li>
+        <li><a href="#" data-scroll="4" class="nav-link">О нас</a></li>
+        <li><a href="#" data-scroll="5" class="nav-link nav-cta">Оставить заявку</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-scrim" id="nav-scrim" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" hidden>
+    <button class="drawer-close" id="drawer-close" aria-label="Закрыть">✕</button>
+    <ul class="drawer-links" id="drawer-links">
+      <li><a href="#" data-scroll="1" class="drawer-link">Услуги</a></li>
+      <li><a href="#" data-scroll="2" class="drawer-link">Проекты</a></li>
+      <li><a href="#" data-scroll="3" class="drawer-link">Процесс</a></li>
+      <li><a href="#" data-scroll="4" class="drawer-link">О нас</a></li>
+      <li><a href="#" data-scroll="5" class="drawer-link">Оставить заявку</a></li>
+    </ul>
+    <div class="drawer-contacts"></div>
+  </div>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <div id="ui-layer">
+    <div class="stage">
+
+      <!-- SECTION 0: HERO -->
+      <section class="page is-active" data-index="0" id="hero">
+        <div class="page-inner hero-inner">
+          <img src="images/logo.svg" alt="Logo" class="hero-logo reveal-3d">
+          <div class="hero-badge reveal-3d">ВАШ БРЕНД • ВАША НИША • ВАШЕ НАПРАВЛЕНИЕ</div>
+          <h1 class="hero-title reveal-3d">
+            ЗДЕСЬ БУДЕТ ИМЯ<br><span class="gradient-text">ВАШЕЙ КОМПАНИИ</span>
+          </h1>
+          <p class="hero-subtitle reveal-3d">Тут Вы можете написать свой слоган, краткое описание или горячее предложение - всё, что пожелаете!</p>
+          <div class="hero-cta-group reveal-3d">
+            <a href="#" data-scroll="5" class="btn-primary">Сделать кнопку</a>
+            <a href="#" data-scroll="2" class="btn-outline">Свои ссылки</a>
+          </div>
+          <div class="hero-scroll-hint">
+            <div class="scroll-line"></div>
+            <span>прокрутите</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 1: SERVICES -->
+      <section class="page" data-index="1" id="services">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Наши компетенции</div>
+          <h2 class="section-title reveal-3d">Ваши <span class="gradient-text">услуги</span></h2>
+          <p class="section-desc reveal-3d">Здесь вы можете рассказать о своём предложении как в примерах ниже.</p>
+          <div class="services-grid reveal-3d">
+            <div class="service-card">
+              <div class="service-icon">💻</div>
+              <h3>Разработка ПО</h3>
+              <p>Веб-приложения, мобильные приложения, SaaS-платформы. React, Node.js, Python, Go — под ключ от MVP до enterprise.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">☁️</div>
+              <h3>Облачные решения</h3>
+              <p>Миграция в облако, настройка AWS / GCP / Azure. Оптимизация затрат, автоскейлинг и отказоустойчивая архитектура.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🔒</div>
+              <h3>Кибербезопасность</h3>
+              <p>Аудит безопасности, пентестинг, защита данных. Соответствие GDPR, PCI DSS и ФЗ-152. SOC мониторинг 24/7.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🤖</div>
+              <h3>AI / Machine Learning</h3>
+              <p>Чат-боты, предиктивная аналитика, компьютерное зрение. Интеграция GPT, обучение моделей на ваших данных.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🔗</div>
+              <h3>Системная интеграция</h3>
+              <p>Подключение CRM, ERP, платёжных систем. API-интеграции, ETL-процессы и синхронизация данных между сервисами.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🛠️</div>
+              <h3>DevOps и поддержка</h3>
+              <p>CI/CD пайплайны, контейнеризация, мониторинг. Техническая поддержка 24/7 с SLA до 99.99% uptime.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: PROJECTS -->
+      <section class="page" data-index="2" id="collections">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Портфолио</div>
+          <h2 class="section-title reveal-3d">Здесь могут быть примеры <span class="gradient-text">ваших работ</span></h2>
+          <p class="section-desc reveal-3d">Добавьте то, что всех поразит</p>
+          <div class="collections-grid reveal-3d">
+            <div class="collection-card card-large">
+              <img src="images/hero-coat.png" alt="Проект Альфа" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Категория · Тип</span>
+                <h3>Проект «Альфа»</h3>
+                <p>Описание вашего лучшего кейса, город N</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <img src="images/hats.png" alt="Пространство Аврора" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Категория · Формат</span>
+                <h3>Пространство «Аврора»</h3>
+                <p>Ещё один пример работы, бизнес-район</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <img src="images/texture.png" alt="Комплекс Луч" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Категория · Стиль</span>
+                <h3>Комплекс «Луч»</h3>
+                <p>Третий пример — покажите свои достижения</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PROCESS -->
+      <section class="page" data-index="3" id="production">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Методология</div>
+          <h2 class="section-title reveal-3d">Наш<br><span class="gradient-text">процесс</span></h2>
+          <p class="section-desc reveal-3d">Расскажите о том, как выглядит ваше сотрудничество с клиентами, как в примере ниже</p>
+          <div class="production-layout reveal-3d">
+            <div class="production-image-wrap">
+              <img src="images/workshop.png" alt="Серверная инфраструктура" class="production-img" />
+            </div>
+            <div class="production-stats">
+              <div class="stat-card">
+                <span class="stat-number">300+</span>
+                <span class="stat-label">завершённых проектов</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">корпоративных клиентов</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">99.9%</span>
+                <span class="stat-label">uptime наших систем</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">техническая поддержка</span>
+              </div>
+              <div class="production-steps">
+                <div class="prod-step"><span class="step-num">01</span><span class="step-text">Discovery: анализ бизнес-требований и архитектура</span></div>
+                <div class="prod-step"><span class="step-num">02</span><span class="step-text">Design: UX/UI прототипирование и утверждение</span></div>
+                <div class="prod-step"><span class="step-num">03</span><span class="step-text">Development: спринты с еженедельными демо</span></div>
+                <div class="prod-step"><span class="step-num">04</span><span class="step-text">QA: автотесты, нагрузочное тестирование, безопасность</span></div>
+                <div class="prod-step"><span class="step-num">05</span><span class="step-text">Deploy: CI/CD, мониторинг и передача в эксплуатацию</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: ABOUT -->
+      <section class="page" data-index="4" id="about">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Почему мы</div>
+          <h2 class="section-title reveal-3d"><span class="gradient-text">О нас</span></h2>
+          <p class="section-desc reveal-3d">Расскажите о достижениях Вашей компании, поделитесь хорошими отзывами</p>
+          <div class="about-grid reveal-3d">
+            <div class="about-card">
+              <div class="about-icon">🏆</div>
+              <h3>Certified партнёры</h3>
+              <p>Сертифицированные специалисты AWS, Google Cloud, Microsoft Azure. Партнёрский статус подтверждает экспертизу команды.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">⚡</div>
+              <h3>Agile-разработка</h3>
+              <p>Работаем по Scrum и Kanban. Гибкое планирование, прозрачные спринты, еженедельные демонстрации прогресса.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🔄</div>
+              <h3>DevOps-культура</h3>
+              <p>Автоматизация деплоя, инфраструктура как код, контейнеризация. От коммита до продакшена за минуты.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">📊</div>
+              <h3>SLA 99.9% uptime</h3>
+              <p>Мониторинг 24/7, автоматическое восстановление, резервное копирование. Ваш бизнес работает без перебоев.</p>
+            </div>
+          </div>
+          <div class="about-cta reveal-3d">
+            <a href="#" target="_blank" class="btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.26l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.658.326z"/></svg>
+              Написать в Telegram
+            </a>
+            <a href="#" target="_blank" class="btn-outline">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTACT -->
+      <section class="page" data-index="5" id="contact">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Связаться</div>
+          <h2 class="section-title reveal-3d">Свяжитесь <span class="gradient-text">с нами</span></h2>
+          <p class="section-desc reveal-3d">Здесь укажите свои контакты, адрес, соцсети, чтобы клиент смог с Вами связаться</p>
+          <div class="contact-layout reveal-3d">
+            <div class="contact-form-wrap">
+              <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                  <label for="name">Ваше имя и компания</label>
+                  <input type="text" id="name" name="name" placeholder="Ваше имя и компания" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Телефон</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+                </div>
+                <div class="form-group">
+                  <label for="interest">Ваша ниша</label>
+                  <select id="interest" name="interest">
+                    <option value="">Ваша ниша</option>
+                    <option>Медицина / Красота</option>
+                    <option>Рестораны / HoReCa</option>
+                    <option>Строительство / Ремонт</option>
+                    <option>Архитектура / Дизайн</option>
+                    <option>IT / Консалтинг</option>
+                    <option>Автобизнес / Детейлинг</option>
+                    <option>Фитнес / Спорт</option>
+                    <option>Образование</option>
+                    <option>Туризм / Отели</option>
+                    <option>Производство</option>
+                    <option>Другое</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="budget">Бюджет на сайт</label>
+                  <select id="budget" name="budget">
+                    <option value="">Бюджет на сайт</option>
+                    <option>45 000 – 80 000 ₽</option>
+                    <option>80 000 – 120 000 ₽</option>
+                    <option>120 000 – 200 000 ₽</option>
+                    <option>от 200 000 ₽</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Сообщение</label>
+                  <textarea id="message" name="message" rows="3" placeholder="Что хотите получить от сайта? Какой сейчас сайт (ссылка)?"></textarea>
+                </div>
+                <button type="submit" class="btn-primary form-submit">
+                  Заказать сайт
+                  <span class="btn-arrow">→</span>
+                </button>
+                <p class="form-note" style="text-align:center;margin-top:12px;font-size:0.8rem;opacity:0.5">Ответим в течение 2 часов в рабочее время. Без спама.</p>
+              </form>
+            </div>
+            <div class="contact-info-wrap">
+              <div class="contact-info-card">
+                <h3>Контакты</h3>
+                <div class="contact-item">
+                  <span class="contact-icon">📍</span>
+                  <div>
+                    <strong>Адрес</strong>
+                    <span>ВАШ АДРЕС</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">📱</span>
+                  <div>
+                    <strong>Телефон</strong>
+                    <a href="tel:#">ВАШ ТЕЛЕФОН</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">📧</span>
+                  <div>
+                    <strong>Email</strong>
+                    <a href="mailto:#">ВАША ПОЧТА</a>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-promise-card">
+                <div class="promise-icon">✦</div>
+                <h4>Наше обещание</h4>
+                <p>Бесплатная консультация и предварительная оценка проекта в течение 24 часов. NDA подписываем до начала обсуждения.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:32px"><a href="https://unityspirit.github.io/global-plus/#page-4" class="btn-outline" style="font-size:16px;padding:14px 40px;display:inline-block;text-decoration:none">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a></div>
+        <footer class="footer">
+          <div class="footer-inner">
+            <span class="footer-logo">ВАША КОМПАНИЯ</span>
+            <span class="footer-copy">© 2025 ВАША КОМПАНИЯ. Ваше описание.</span>
+            <div class="footer-socials">
+              <a href="#" target="_blank">TG</a>
+              <a href="#" target="_blank">LI</a>
+            </div>
+          </div>
+        </footer>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
